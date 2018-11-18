@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<title>Code Drop</title>
+<head>
+<meta charset="utf-8"/>
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel="stylesheet" href="/css/style.css">
+<style>
+</style>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+</head>
+<body >
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-theme-d5" id="myNavbar">
+    <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <a href="/users/logout" class="w3-bar-item w3-hover-black w3-button  w3-hide-small " style="margin-left: 46%;"><strong>CODE DROP</strong></a>
+    {{#if user}}
+    <a href="/dashboard" class="w3-bar-item w3-button  w3-hover-black" style="cursor: pointer;margin-left: 20%;"><i class="fa fa-home"></i><strong> New Code</strong></a>
+    <a href="/mycodes" class="w3-bar-item w3-button w3-hide-small w3-hover-black " ><i class="fa fa-list"></i><strong> My Codes</strong></a>
+    <a href="/logout" class="w3-bar-item w3-button w3-hover-black w3-hide-small"><i class="fa fa-sign-out"></i><strong> Logout</strong></a>
+    {{else}}
+    <a href="/userlogin" class="w3-bar-item w3-button w3-hover-black w3-hide-small" style="margin-left: 30%;"><i class="fa fa-sign-in"></i><strong>User Login</strong></a>
+    <a href="/adminlogin" class="w3-bar-item w3-button w3-hover-black w3-hide-small" style="margin-left: 30%;"><i class="fa fa-sign-in"></i><strong>Admin Login</strong></a>
+    <a href="/register" class="w3-bar-item w3-button w3-hover-black w3-hide-small"><i class="fa fa-user-plus"></i><strong> Register</strong></a>
+    {{/if}}
+  </div>
+  </div>
+<!-- Container (About Section) -->
+<br>
+{{#if success_msg}}
+<div class="w3-container w3-section w3-green">
+<span onclick="this.parentElement.style.display='none'" class="w3-closebtn" style="cursor: pointer;">&times;</span>
+  {{success_msg}}
+</div>
+{{/if}}
+{{# if error_msg}}
+<div class="w3-container w3-section w3-red">
+<span onclick="this.parentElement.style.display='none'" class="w3-closebtn" style="cursor: pointer;">&times;</span>
+  {{error_msg}}
+</div>
+{{/if}}
+{{#if error}}
+<div class="w3-container w3-section w3-red">
+<span onclick="this.parentElement.style.display='none'" class="w3-closebtn" style="cursor: pointer;">&times;</span>
+  {{error}}
+</div>
+{{/if}}
+
+{{{body}}}
+<script>
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+    document.getElementById("myDropdown1").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('#dropbutn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
+
+</body>
+</html>
